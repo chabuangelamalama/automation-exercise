@@ -307,22 +307,23 @@ describe('E-commerce Automation Challenges', () => {
 
   //CHALLENANGE TWO
   it('Challenge 2: Verify Product Quantity', () => {
-    // Navigates to products page
+  
     cy.contains('a', /Products|Shop/i).click();
     
-    // Clicks on the first product card or product image link to open details
+    
     cy.get('a').contains(/View|Detail|Product/i).first().click();
 
-    // Finds the number box, clears the default '1', and types '3'
+    
     cy.get('input[type="number"]').first().clear().type('3');
 
-    // Adds the 3 items to the cart
+    
     cy.contains('button', /Add to Cart/i).click();
 
-    // Opens the cart
+    
     cy.contains('a', /Cart|Basket/i).click();
 
-    // Verifies that the quantity box inside the cart displays '3'
+    
     cy.get('input[type="number"]').first().should('have.value', '3');
+    cy.screenshot();
   });
 });
